@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For My Forever ❤️</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            text-align: center;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 40px;
+        }
+
+        .heart {
+            font-size: 40px;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .typewriter {
+            font-size: 22px;
+            margin: 30px auto;
+            width: 80%;
+            min-height: 60px;
+            border-right: 3px solid white;
+            white-space: pre-wrap;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .gallery img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 20px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 16px;
+        }
+
+        /* Floating hearts */
+        .floating-heart {
+            position: fixed;
+            bottom: -10px;
+            font-size: 20px;
+            animation: float 6s linear infinite;
+            color: white;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Happy Valentine's Day My Love 💕</h1>
+    <div class="heart">❤️</div>
+
+    <div class="typewriter" id="typewriter"></div>
+
+    <!-- Music -->
+    <audio autoplay loop>
+        <source src="song.mp3" type="audio/mp3">
+    </audio>
+
+    <h2>Our Beautiful Memories 📸</h2>
+    <div class="gallery">
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+        <img src="photo3.jpg">
+        <img src="photo4.jpg">
+    </div>
+
+    <footer>
+        Forever Yours ❤️
+    </footer>
+
+<script>
+    // Typewriter Effect
+    const text = "You are my sunshine in every storm, my happiness in every moment, and my forever in every dream. I love you endlessly. ❤️";
+    let i = 0;
+    const speed = 50;
+
+    function typeEffect() {
+        if (i < text.length) {
+            document.getElementById("typewriter").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeEffect, speed);
+        }
+    }
+
+    window.onload = function() {
+        typeEffect();
+        createHearts();
+    }
+
+    // Floating Hearts Generator
+    function createHearts() {
+        setInterval(() => {
+            const heart = document.createElement("div");
+            heart.className = "floating-heart";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }, 500);
+    }
+</script>
+
+</body>
+</html>
